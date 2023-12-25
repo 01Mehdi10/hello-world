@@ -1,8 +1,10 @@
 # 1 Conversion de degrés, minutes, secondes en radian
 
+import math
+
 d, m, s = 30, 15, 45 # valeurs degrés, minutes, secondes
 
-π = 3.14159265359
+π = math.pi
 
 rd = (d + m/60 + s/3600) * π/180 # conversion de degrés, minutes, secondes à radians
 
@@ -13,8 +15,6 @@ print (d,"° ", m,"' ", s,'" = ', rd, " rad")
 # 2 conversion de radian à degrés, minutes, secondes
 
 rad = 3.562588 # valeur en radian 
-
-#π = 3.14159265359
 
 deg = 180/π * rad #degrés 
 
