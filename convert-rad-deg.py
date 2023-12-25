@@ -8,6 +8,8 @@ rd = (d + m/60 + s/3600) * π/180 # conversion de degrés, minutes, secondes à 
 
 print (d,"° ", m,"' ", s,'" = ', rd, " rad")
 
+#--------------------------------------
+
 # 2 conversion de radian à degrés, minutes, seconde
 
 rad = 3.562588 # valeur en radian 
