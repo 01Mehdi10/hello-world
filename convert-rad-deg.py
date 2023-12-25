@@ -10,7 +10,7 @@ print (d,"° ", m,"' ", s,'" = ', rd, " rad")
 
 #--------------------------------------
 
-# 2 conversion de radian à degrés, minutes, seconde
+# 2 conversion de radian à degrés, minutes, secondes
 
 rad = 3.562588 # valeur en radian 
 
