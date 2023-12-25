@@ -14,7 +14,7 @@ print (d,"° ", m,"' ", s,'" = ', rd, " rad")
 
 rad = 3.562588 # valeur en radian 
 
-π = 3.14159265359
+#π = 3.14159265359
 
 deg = 180/π * rad #degrés 
 
