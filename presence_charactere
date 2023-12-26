@@ -1,17 +1,18 @@
 # Présence d'un caractère
 
-exp = "Électronique"
+exp = "yeux verts émeraude"
 ln = len(exp)
 c = 0
-ltr = "n"
+ltr = "e"
 yon = False
+nc = 0
 while c<ln:
     nl = exp[c]
     if nl == ltr:
-       yon = True 
+       yon = True
+       nc += 1
     c+=1
 if yon == True:
-    print ("l'expression",exp, "contient la lettre", ltr)
+    print ("l'expression -",exp, "- contient la lettre -", ltr,"-", nc, "fois")
 else:
     print ("l'expression",exp, "ne contient pas la lettre", ltr)
-       
