@@ -3,11 +3,15 @@
 exp = "Électronique"
 ln = len(exp)
 c = 0
+ltr = "n"
 yon = False
-while c<ln:      
-    if exp[c]=="e":
-        yon = True
-        print ("l'expression",exp, "contient la lettre e")
-    else:
-        yon = False
-    c+=1   
+while c<ln:
+    nl = exp[c]
+    if nl == ltr:
+       yon = True 
+    c+=1
+if yon == True:
+    print ("l'expression",exp, "contient la lettre", ltr)
+else:
+    print ("l'expression",exp, "ne contient pas la lettre", ltr)
+       
