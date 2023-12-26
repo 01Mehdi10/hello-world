@@ -1,0 +1,13 @@
+# Présence d'un caractère
+
+exp = "Électronique"
+ln = len(exp)
+c = 0
+yon = False
+while c<ln:      
+    if exp[c]=="e":
+        yon = True
+        print ("l'expression",exp, "contient la lettre e")
+    else:
+        yon = False
+    c+=1   
