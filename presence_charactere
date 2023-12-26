@@ -3,7 +3,7 @@
 exp = "yeux verts émeraude"
 ln = len(exp)
 c = 0
-ltr = "e"
+ltr = "w"
 yon = False
 nc = 0
 while c<ln:
@@ -15,4 +15,4 @@ while c<ln:
 if yon == True:
     print ("l'expression -",exp, "- contient la lettre -", ltr,"-", nc, "fois")
 else:
-    print ("l'expression",exp, "ne contient pas la lettre", ltr)
+    print ("l'expression -",exp, "- ne contient pas la lettre -", ltr,"-")
