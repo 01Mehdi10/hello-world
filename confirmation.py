@@ -9,4 +9,4 @@ def question(annonce, essais = 4, please ='Oui ou non, s.v.p.!'):
     essais = essais - 1
     
 # appel fonction
-rep = question('Voulez-vous vraiment terminer ? ')
+rep = question('Avez-vous compris ? ', 2, 'Répondez par oui ou par non !')
