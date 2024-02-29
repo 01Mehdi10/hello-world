@@ -13,6 +13,8 @@ def volBoite(L,l,p):
     v = L*L*l
   if L == 1 and l != 1 and p != 1:
     v = l*l*p
+  if L != 1 and l == 1 and p != 1:
+    v = L*L*p
   return v
 
 # demande des valeurs, appel fonction puis affichage.
