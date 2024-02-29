@@ -19,9 +19,9 @@ def volBoite(L,l,p):
 
 # demande des valeurs, appel fonction puis affichage.
 print("Calcul du volume d'une boîte \n","\nEntre les trois valeurs :")
-Lg,lg,pr = input()
-#lg = input()
-#pr = input()
+Lg = input()
+lg = input()
+pr = input()
 Lg,lg,pr = str(Lg),str(lg),str(pr)
 if Lg == "" or Lg == "0":
   Lg = 1
