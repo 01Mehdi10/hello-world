@@ -3,11 +3,13 @@ def changeCar(ch,ca1,ca2,debut,fin):
   c = 0
   nCh = ''
   while c < len(ch):
-    if ch[c] == '':
-      ch[c] = '*'
+    if ch[c] == ' ':
+      c += 1
+      nCh = nCh + '*'
     nCh = nCh + ch[c]
     c += 1
   return  nCh
+  
 # Appel fonction
 phrase = 'Ceci est une phrase courte'
 ca1 = ''
