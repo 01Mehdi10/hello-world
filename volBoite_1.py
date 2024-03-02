@@ -32,7 +32,7 @@ def volBoite(L,l,p):
     return  rep
 
 # demande des valeurs, appel fonction puis affichage.
-print("----- Calcul du volume d'une boîte ----- \n(Les valeurs nules ou négatives sont transformées\n en 1)\nEntre les trois valeurs :")
+print("----- Calcul du volume d'une boîte ----- \nEntre les trois valeurs :")
 Lg = input()
 lg = input()
 pr = input()
