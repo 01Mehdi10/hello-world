@@ -12,4 +12,4 @@ ca1 = ''
 ca2 = '*'
 debut = 6
 fin = 12
-changeCar(phrase,)
+changeCar(phrase,ca1,ca2,debut,fin)
