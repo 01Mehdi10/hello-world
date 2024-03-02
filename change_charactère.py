@@ -1,11 +1,13 @@
 # fonction pour changer le caractère dans une chaîne.
 def changeCar(ch,ca1,ca2,debut,fin):
   c = 0
+  nCh = ''
   while c < len(ch):
     if ch[c] == '':
       ch[c] = '*'
+    nCh = nCh + ch[c]
     c += 1
-    
+  return  nCh
 # Appel fonction
 phrase = 'Ceci est une phrase courte'
 ca1 = ''
