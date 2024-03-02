@@ -27,8 +27,9 @@ def volBoite(L,l,p):
     v = "Erreur : -1"
     return v
   else:
-    rep = "Le volume de la boîte est"
-    return  rep,v
+    v = str(v)
+    rep = "Le volume de la boîte est " + v
+    return  rep
 
 # demande des valeurs, appel fonction puis affichage.
 print("----- Calcul du volume d'une boîte ----- \n(Les valeurs nules ou négatives sont transformées\n en 1)\nEntre les trois valeurs :")
