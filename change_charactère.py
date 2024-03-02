@@ -11,7 +11,7 @@ def changeCar(ch,ca1,ca2,debut,fin):
   return  nCh
   
 # Appel fonction
-phrase = 'Ceci est une phrase courte'
+phrase = 'Ceci est une phrase courte.'
 ca1 = ' '
 ca2 = '*'
 debut = 6
