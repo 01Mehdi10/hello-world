@@ -15,10 +15,12 @@ def volBoite(L,l,p):
     v = l*l*p
   if L != 1 and l == 1 and p != 1:
     v = L*L*p
+  if L == 1 and l == 1 and p == 1:
+    v = 1
   return v
 
 # demande des valeurs, appel fonction puis affichage.
-print("----- Calcul du volume d'une boîte ----- \n(Les valeurs nules ou négatives sont transformées\n en 1)","\nEntre les trois valeurs :")
+print("----- Calcul du volume d'une boîte ----- \n(Les valeurs nules ou négatives sont transformées\n en 1)\nEntre les trois valeurs :")
 Lg = input()
 lg = input()
 pr = input()
