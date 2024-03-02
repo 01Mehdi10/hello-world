@@ -23,11 +23,11 @@ Lg = input()
 lg = input()
 pr = input()
 Lg,lg,pr = str(Lg),str(lg),str(pr)
-if Lg == "" or Lg == "0":
+if Lg == "" or Lg <= "0":
   Lg = 1
-if lg == "" or lg == "0":
+if lg == "" or lg <= "0":
   lg = 1
-if pr == "" or pr == "0":
+if pr == "" or pr <= "0":
   pr = 1
 Lg = int(Lg)
 lg = int(lg)
