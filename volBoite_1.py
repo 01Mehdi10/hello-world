@@ -23,7 +23,12 @@ def volBoite(L,l,p):
     v = round(v, 3)
   if L == 1 and l == 1 and p == 1:
     v = -1
-  return v
+  if v == -1:
+    v = "Erreur : -1"
+    return v
+  else:
+    rep = "Le volume de la boîte est"
+    return  rep,v
 
 # demande des valeurs, appel fonction puis affichage.
 print("----- Calcul du volume d'une boîte ----- \n(Les valeurs nules ou négatives sont transformées\n en 1)\nEntre les trois valeurs :")
@@ -38,4 +43,4 @@ if lg == "" or lg <= "0":
 if pr == "" or pr <= "0":
   pr = 1
 Lg,lg,pr = float(Lg),float(lg),float(pr)
-print("Le volume de la boîte est", volBoite(Lg,lg,pr))
+print(volBoite(Lg,lg,pr))
