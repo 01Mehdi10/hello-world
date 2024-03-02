@@ -24,7 +24,7 @@ def volBoite(L,l,p):
   if L == 1 and l == 1 and p == 1:
     v = -1
   if v == -1:
-    v = "Erreur : Valeur nulle ou inférieure à 0"
+    v = "Erreur : Valeurs nulle ou inférieure à 0"
     return v
   else:
     v = str(v)
