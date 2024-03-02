@@ -5,18 +5,24 @@ def volBoite(L,l,p):
     v = round(v, 3)
   if L != 1 and l == 1 and p == 1:
     v = L*L*L
+    v = round(v, 3)
   if L == 1 and l != 1 and p == 1:
     v = l*l*l
+    v = round(v, 3)
   if L == 1 and l == 1 and p != 1:
     v = p*p*p
+    v = round(v, 3)
   if L != 1 and l != 1 and p == 1:
     v = L*L*l
+    v = round(v, 3)
   if L == 1 and l != 1 and p != 1:
     v = l*l*p
+    v = round(v, 3)
   if L != 1 and l == 1 and p != 1:
     v = L*L*p
+    v = round(v, 3)
   if L == 1 and l == 1 and p == 1:
-    v = 1
+    v = -1
   return v
 
 # demande des valeurs, appel fonction puis affichage.
