@@ -29,7 +29,5 @@ if lg == "" or lg <= "0":
   lg = 1
 if pr == "" or pr <= "0":
   pr = 1
-Lg = int(Lg)
-lg = int(lg)
-pr = int(pr)
+Lg,lg,pr = float(Lg),float(lg),float(pr)
 print("Le volume de la boîte est", volBoite(Lg,lg,pr))
