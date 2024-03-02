@@ -8,3 +8,8 @@ def changeCar(ch,ca1,ca2,debut,fin):
     
 # Appel fonction
 phrase = 'Ceci est une phrase courte'
+ca1 = ''
+ca2 = '*'
+debut = 6
+fin = 12
+changeCar(phrase,)
