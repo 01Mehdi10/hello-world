@@ -28,7 +28,7 @@ def eleMax(liste,debut,fin):
   return e
     
 # appel fonction
-liste = [1,4,1,2,11,5,9,3,0]
-debut = 1
-fin = 6
+liste = [1,4,6,2,11,5,9,3,0]
+debut = 0
+fin = 3
 print("L'élément le plus grand est ", eleMax(liste,debut,fin))
