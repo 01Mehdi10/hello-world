@@ -17,6 +17,10 @@ def eleMax(liste,debut,fin):
       if liste[debut] > e:
         e = liste[debut]
       debut += 1
+      
+  # Avec début, sans fin
+  
+  
   return e
     
 # appel fonction
