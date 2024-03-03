@@ -8,9 +8,7 @@ def changeCar(ch,ca1,ca2,debut,fin):
   
   #ni début ni fin
   if debut == '' and fin =='':
-      while c < len(ch):
-        nCh = nCh + ch[c]
-        c += 1
+      nCh = ch
 
   # avec un début et une fin
   if debut != '' and fin != '':
