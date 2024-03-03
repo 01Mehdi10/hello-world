@@ -1,4 +1,4 @@
-# Affiche l'élément le plus grand d'une liste
+# Affiche l'élément le plus grand d'une liste. En option, 
 
 def eleMax(liste):
   c = 0
