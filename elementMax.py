@@ -10,6 +10,7 @@ def eleMax(liste,debut,fin):
       if liste[c] > e:
         e = liste[c]
       c += 1
+      
   # Avec les deux arguments
   if debut != '' and fin != '':
     while debut < liste[fin]:
