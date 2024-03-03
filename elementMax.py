@@ -25,10 +25,17 @@ def eleMax(liste,debut,fin):
         e = liste[debut]
       debut += 1
       
+   # sans début, avec fin
+  if debut == '' and fin != '':
+    while c < fin:
+      if liste[c] > e:
+        e = liste[c]
+      c += 1
+    
   return e
     
 # appel fonction
 liste = [1,4,6,2,11,5,9,3,0]
-debut = 0
+debut = ''
 fin = 3
 print("L'élément le plus grand est ", eleMax(liste,debut,fin))
