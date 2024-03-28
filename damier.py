@@ -15,8 +15,8 @@ def damier():
     c = 1
     y = 10
     y1 = 110
-    color1 = ['blue','white','blue','white','blue','white','blue','white','blue','white']
-    color2 = ['white','blue','white','blue','white','blue','white','blue','white','blue']
+    color1 = ['navy','white','navy','white','navy','white','navy','white','navy','white']
+    color2 = ['white','navy','white','navy','white','navy','white','navy','white','navy']
     while c < 11:
         if c % 2 == 0:
             color = color2
