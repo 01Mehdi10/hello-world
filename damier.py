@@ -28,23 +28,32 @@ def damier():
         c += 1
         
 def pion():
-    x = 16
-    y = 102
-    l1 = [16]
-    l2 = [102]
+    l1 = [15]
+    l2 = [15]
+    l3 = [105]
+    l4 = [105]
+    x = 15
+    y = 15
+    x1 = 105
+    y1 = 105
     c = 1
     while c < 10:
-        x += 100
-        y += 100
         l1.append(x)
         l2.append(y)
+        l3.append(x1)
+        l4.append(y1)
+        x += 100
+        y += 100
+        x1 += 100
+        y1 += 100
         c +=1
-    c1 = randrange(len(l1))
-    x = l2[c1]
-    x1 = l1[c1]
-    y = l1[c1]
-    y1 = l2[c1]
-    can.create_oval(x,x1,y,y1,fill='red')
+    c1 = randrange(10)
+    c2 = randrange(10)
+    x = l1[c1]
+    x1 = l3[c1]
+    y = l2[c2]
+    y1 = l4[c2]
+    can.create_oval(x,y,x1,y1,fill='red')
         
         
 ##### Programme principal #####
