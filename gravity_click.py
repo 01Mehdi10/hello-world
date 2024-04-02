@@ -54,13 +54,14 @@ def depl_bas():
 #------ Programme principal -------
 # les variables suivantes seront utilisées de manière globale :
     
-ech = 600000/600 # calcul échelle de distance
+ech = 1000000/600 # calcul échelle de distance
 
 x1, y1 = 200, 200  # coordonnées initiales de la lune
 x2, y2 = 350,350 # coordonnées initiales de la terre
 
 # Calcul distance de la terre à la lune
 Dx = round(((x2 - x1) ** 2 + (y2 - y1) ** 2) ** 0.5*ech,2)
+Dx = Dx * ech
 
 # masses de la terre et de la lune        
 p_terre, p_lune = 5.972 * 10 ** 24,  7.342 * 10 ** 22 
