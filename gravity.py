@@ -3,7 +3,7 @@ from tkinter import *
 def avance_lune(gd, hb):
  global x1, y1
  x1, y1 = x1 +gd, y1 +hb
- can1.coords(oval1, x1,y1, x1+30,y1+30)
+ can1.coords(oval1, x1-30,y1-30, x1+30,y1+30)
  
 # gestionnaires d'événements :
 def depl_gauche_lune():
@@ -22,7 +22,7 @@ def depl_bas_lune():
 def avance_terre(gd, hb):
  global x2, y2
  x2, y2 = x2 +gd, y2 +hb
- can1.coords(oval2, x2,y2, x2+80,y2+80)
+ can1.coords(oval2, x2-80,y2-80, x2+80,y2+80)
  
 def distance_terre_lune():
  global ech
@@ -56,7 +56,7 @@ def depl_bas():
     
 ech = 600000/600 # calcul échelle de distance
 
-x1, y1 = 300, 300  # coordonnées initiales de la lune
+x1, y1 = 200, 200  # coordonnées initiales de la lune
 x2, y2 = 350,350 # coordonnées initiales de la terre
 
 # Calcul distance de la terre à la lune
@@ -77,8 +77,8 @@ fen1.title("Exercice d'animation avec tkinter")
 m_astres = Label(fen1,text='Masse de la terre = ' + str(p_terre)+'\n Masse de la lune ='+str(p_lune))
 m_astres.grid(column=1,columnspan=4,row=1)
 can1 = Canvas(fen1,bg='dark grey',height=600,width=600)
-oval1 = can1.create_oval(x1,y1,x1+30,y1+30,width=2,fill='yellow') # lune
-oval2 = can1.create_oval(x2,y2,x2+80,y2+80,width=2,fill='blue') #terre
+oval1 = can1.create_oval(x1-30,y1-30,x1+30,y1+30,width=2,fill='yellow') # lune
+oval2 = can1.create_oval(x2-80,y2-80,x2+80,y2+80,width=2,fill='blue') #terre
 can1.grid(column=1,columnspan=4,row=2)
 e_astres = Label(fen1,text='Échelle de distance : \n' + '1 px = ' + str(round(ech, 2)) + ' km' + '\n Distance : ' + str(Dx) + ' km \n Force gravitationnelle : \n' + str(Fg)) # échelle de distance, distance entre les astres, force gravitationnelle
 e_astres.grid(column=1,columnspan=4,row=3)
