@@ -12,48 +12,76 @@ def avance_terre(event):
  can1.coords(oval2, x2-80,y2-80, x2+80,y2+80)
  distance_terre_lune()
  
+ 
 def distance_terre_lune():
  global ech
- distance = round(((x2 - x1) ** 2 + (y2 - y1) ** 2) ** 0.5,2)
+ D_tl = round(((x2 - x1) ** 2 + (y2 - y1) ** 2) ** 0.5,2) # distance terre/lune
  
- Fg = G * (p_terre * p_lune)/distance**2
- Fg = round(Fg,2) # force gravitationnelle
+ D_sl = round(((x3 - x1) ** 2 + (y3 - y1) ** 2) ** 0.5,2) # distance soleil/lune
+ 
+ D_st = round(((x3 - x2) ** 2 + (y3 - y2) ** 2) ** 0.5,2) # distance soleil/terre
+ 
+ Fg_tl = G * (p_terre * p_lune)/D_tl**2
+ Fg_tl = round(Fg_tl,2) # force gravitationnelle terre/lune
+ 
+ Fg_sl = G * (p_soleil * p_lune)/D_sl**2
+ Fg_sl = round(Fg_sl,2) # force gravitationnelle soleil/lune
+ 
+ Fg_st = G * (p_soleil * p_terre)/D_st**2
+ Fg_st = round(Fg_st,2) # force gravitationnelle soleil/terre
 
- if distance < (80/4 + 30/4):  # Si les astres se chevauchent
-   e_astres.config(text='Échelle de distance : \n' + '1 px = ' + str(round(ech, 2)) + ' km' + '\n Distance : 0 km \n Force gravitationnelle : \n' + str(Fg))
+ if D_tl < (80/4 + 30/4):  # Si les astres se chevauchent
+   e_astres.config(text='Échelle de distance : \n' + '1 px = ' + str(round(ech, 2)) + ' km' + '\n Distance terre/lune : 0 km \n Force terre/lune : \n' + str(Fg_tl)+
+                 '\n Force soleil/lune : \n' + str(Fg_sl)+'\n Force soleil/terre : \n' + str(Fg_st)) # échelle de distance, distance entre les astres, force gravitationnelle
  else:
-   distance = round(distance * ech, 2)
-   e_astres.config(text='Échelle de distance : \n' + '1 px = ' + str(round(ech, 2)) + ' km' + '\n Distance : ' + str(distance) + ' km \n Force gravitationnelle : \n' + str(Fg))
+   D_tl = round(D_tl * ech, 2)
+   e_astres.config(text='Échelle de distance : \n' + '1 px = ' + str(round(ech, 2)) + ' km' + '\n Distance terre/lune : ' + str(D_tl) + ' km \n Force terre/lune : \n' + str(Fg_tl)+
+                 '\n Force soleil/lune : \n' + str(Fg_sl)+'\n Force soleil/terre : \n' + str(Fg_st)) # échelle de distance, distance entre les astres, force gravitationnelle
     
 #------ Programme principal -------
 # les variables suivantes seront utilisées de manière globale :
     
-ech = 1000000/600 # calcul échelle de distance
+ech = 384400/400 # calcul échelle de distance
 
 x1, y1 = 200, 200  # coordonnées initiales de la lune
 x2, y2 = 350,350 # coordonnées initiales de la terre
-x3, y3 = 500, 100  # coordonnées initiales de mars
+x3, y3 = 500, 100  # coordonnées initiales du soleil
 
 # Calcul distance de la terre à la lune
-Dx = round(((x2 - x1) ** 2 + (y2 - y1) ** 2) ** 0.5,2)
-Dx = Dx * ech
-# masses de la terre et de la lune        
-p_terre, p_lune = 5.972 * 10 ** 24,  7.342 * 10 ** 22 
+D_tl = round(((x2 - x1) ** 2 + (y2 - y1) ** 2) ** 0.5,2)
+D_tl = D_tl * ech
+
+# Calcul distance du soleil à la lune
+D_sl = round(((x3 - x1) ** 2 + (y3 - y1) ** 2) ** 0.5,2)
+D_sl = D_sl * ech
+
+# Calcul distance du soleil à la terre
+D_st = round(((x3 - x2) ** 2 + (y3 - y2) ** 2) ** 0.5,2)
+D_st = D_st * ech
+
+# masses de la terre, de la lune et du soleil        
+p_terre, p_lune, p_soleil = 5.972 * 10 ** 24,  7.342 * 10 ** 22, 1.989 * 10 ** 30
 
 G = 6.674*10**-11 # constante de la gravitation
 
-Fg = G * (p_terre * p_lune)/(Dx/ech)**2
-Fg = round(Fg,2) # force gravitationnelle
+Fg_tl = G * (p_terre * p_lune)/(D_tl/ech)**2
+Fg_tl = round(Fg_tl,2) # force gravitationnelle terre/lune
+
+Fg_sl = G * (p_soleil * p_lune)/(D_sl/ech)**2
+Fg_sl = round(Fg_sl,2) # force gravitationnelle soleil/lune
+
+Fg_st = G * (p_soleil * p_terre)/(D_st/ech)**2
+Fg_st = round(Fg_st,2) # force gravitationnelle soleil/lune
 
 # Création du widget principal ("maître") :
 fen1 = Tk()
 fen1.title("Exercice d'animation avec tkinter")
 # création des widgets "esclaves" :
-m_astres = Label(fen1,text='Masse de la terre = ' + str(p_terre)+'\n Masse de la lune ='+str(p_lune))
+m_astres = Label(fen1,text='Masse de la terre = ' + str(p_terre)+'\n Masse de la lune ='+str(p_lune) +'\n Masse du soleil = '+str(p_soleil))
 m_astres.grid(column=1,row=1)
 can1 = Canvas(fen1,bg='dark grey',height=600,width=600)
 
-oval3 = can1.create_oval(x3-15,y3-15,x3+15,y3+15,width=2,fill='orange') # mars
+oval3 = can1.create_oval(x3-15,y3-15,x3+15,y3+15,width=2,fill='orange') # soleil
 
 oval1 = can1.create_oval(x1-30,y1-30,x1+30,y1+30,width=2,fill='yellow') # lune
 
@@ -61,7 +89,10 @@ oval2 = can1.create_oval(x2-80,y2-80,x2+80,y2+80,width=2,fill='blue') #terre
 
 can1.grid(column=1,row=2)
 
-e_astres = Label(fen1,text='Échelle de distance : \n' + '1 px = ' + str(round(ech, 2)) + ' km' + '\n Distance : ' + str(Dx) + ' km \n Force gravitationnelle : \n' + str(Fg)) # échelle de distance, distance entre les astres, force gravitationnelle
+e_astres = Label(fen1,text='Échelle de distance : \n' + '1 px = ' + str(round(ech, 2)) + ' km' + '\n Distance terre/lune : ' + str(D_tl) +
+                 ' km \n Force terre/lune : \n' + str(Fg_tl)+
+                 '\n Force soleil/lune : \n' + str(Fg_sl)+
+                 '\n Force soleil/terre : \n' + str(Fg_st)) # échelle de distance, distance entre les astres, force gravitationnelle
 e_astres.grid(column=1,row=3)
 
 sep2 = Label(fen1,text='\n')
