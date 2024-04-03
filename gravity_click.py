@@ -30,9 +30,9 @@ def distance_terre_lune():
     
 ech = 1000000/600 # calcul échelle de distance
 
-x1, y1 = 200, 200  # coordonnées initiales du 
 x1, y1 = 200, 200  # coordonnées initiales de la lune
 x2, y2 = 350,350 # coordonnées initiales de la terre
+x3, y3 = 500, 100  # coordonnées initiales de mars
 
 # Calcul distance de la terre à la lune
 Dx = round(((x2 - x1) ** 2 + (y2 - y1) ** 2) ** 0.5,2)
@@ -53,7 +53,7 @@ m_astres = Label(fen1,text='Masse de la terre = ' + str(p_terre)+'\n Masse de la
 m_astres.grid(column=1,row=1)
 can1 = Canvas(fen1,bg='dark grey',height=600,width=600)
 
-oval1 = can1.create_oval(x3-30,y3-30,x3+30,y3+30,width=2,fill='orange') # soleil
+oval3 = can1.create_oval(x3-15,y3-15,x3+15,y3+15,width=2,fill='orange') # mars
 
 oval1 = can1.create_oval(x1-30,y1-30,x1+30,y1+30,width=2,fill='yellow') # lune
 
@@ -82,7 +82,7 @@ def b_terre():
     can1.grid()
 Button(fen1,text='Terre',command=b_terre,width=3).grid(column=1,row=7)
 
-Button(fen1,text='Quitter',command=fen1.quit).grid()
+Button(fen1,text='Quitter',command=fen1.destroy).grid()
 
 # démarrage du réceptionnaire d'évènements (boucle principale) :
 fen1.mainloop()
