@@ -4,16 +4,16 @@ def avance_lune(event):
  global x1, y1
  x1, y1 = event.x, event.y
  can1.coords(oval1, x1-30,y1-30, x1+30,y1+30)
- distance_terre_lune()
+ distance_terre_lune_soleil()
  
 def avance_terre(event):
  global x2, y2
  x2, y2 = event.x, event.y
  can1.coords(oval2, x2-80,y2-80, x2+80,y2+80)
- distance_terre_lune()
+ distance_terre_lune_soleil()
  
  
-def distance_terre_lune():
+def distance_terre_lune_soleil():
  global ech
  D_tl = round(((x2 - x1) ** 2 + (y2 - y1) ** 2) ** 0.5,2) # distance terre/lune
  
@@ -31,12 +31,12 @@ def distance_terre_lune():
  Fg_st = round(Fg_st,2) # force gravitationnelle soleil/terre
 
  if D_tl < (80/4 + 30/4):  # Si les astres se chevauchent
-   e_astres.config(text='Échelle de distance : \n' + '1 px = ' + str(round(ech, 2)) + ' km' + '\n Distance terre/lune : 0 km \n Force terre/lune : \n' + str(Fg_tl)+
-                 '\n Force soleil/lune : \n' + str(Fg_sl)+'\n Force soleil/terre : \n' + str(Fg_st)) # échelle de distance, distance entre les astres, force gravitationnelle
+   e_astres.config(text='Échelle de distance : \n' + '1 px = ' + str(round(ech, 2)) + ' km' + '\n Distance terre/lune : 0 km \n Force G terre/lune : \n' + str(Fg_tl)+
+                 '\n Force G soleil/lune : \n' + str(Fg_sl)+'\n Force G soleil/terre : \n' + str(Fg_st)) # échelle de distance, distance entre les astres, force gravitationnelle
  else:
    D_tl = round(D_tl * ech, 2)
-   e_astres.config(text='Échelle de distance : \n' + '1 px = ' + str(round(ech, 2)) + ' km' + '\n Distance terre/lune : ' + str(D_tl) + ' km \n Force terre/lune : \n' + str(Fg_tl)+
-                 '\n Force soleil/lune : \n' + str(Fg_sl)+'\n Force soleil/terre : \n' + str(Fg_st)) # échelle de distance, distance entre les astres, force gravitationnelle
+   e_astres.config(text='Échelle de distance : \n' + '1 px = ' + str(round(ech, 2)) + ' km' + '\n Distance terre/lune : ' + str(D_tl) + ' km \n Force G terre/lune : \n' + str(Fg_tl)+
+                 '\n Force G soleil/lune : \n' + str(Fg_sl)+'\n Force G soleil/terre : \n' + str(Fg_st)) # échelle de distance, distance entre les astres, force gravitationnelle
     
 #------ Programme principal -------
 # les variables suivantes seront utilisées de manière globale :
@@ -76,10 +76,14 @@ Fg_st = round(Fg_st,2) # force gravitationnelle soleil/lune
 # Création du widget principal ("maître") :
 fen1 = Tk()
 fen1.title("Exercice d'animation avec tkinter")
-# création des widgets "esclaves" :
-m_astres = Label(fen1,text='Masse de la terre = ' + str(p_terre)+'\n Masse de la lune ='+str(p_lune) +'\n Masse du soleil = '+str(p_soleil))
-m_astres.grid(column=1,row=1)
-can1 = Canvas(fen1,bg='dark grey',height=600,width=600)
+###
+### création des widgets "esclaves" :
+###    
+m_astres = Label(fen1,text='Masse de la terre = ' + str(p_terre)+'\n Masse de la lune ='+str(p_lune) +'\n Masse du soleil = '+str(p_soleil)) #m_astres est le label du haut qui affiche la masse des astres
+m_astres.grid(column=0,row=1)
+
+can1 = Canvas(fen1,bg='dark grey',height=600,width=600) 
+can1.grid(column=0,row=2)# Canvas
 
 oval3 = can1.create_oval(x3-15,y3-15,x3+15,y3+15,width=2,fill='orange') # soleil
 
@@ -87,33 +91,31 @@ oval1 = can1.create_oval(x1-30,y1-30,x1+30,y1+30,width=2,fill='yellow') # lune
 
 oval2 = can1.create_oval(x2-80,y2-80,x2+80,y2+80,width=2,fill='blue') #terre
 
-can1.grid(column=1,row=2)
-
 e_astres = Label(fen1,text='Échelle de distance : \n' + '1 px = ' + str(round(ech, 2)) + ' km' + '\n Distance terre/lune : ' + str(D_tl) +
-                 ' km \n Force terre/lune : \n' + str(Fg_tl)+
-                 '\n Force soleil/lune : \n' + str(Fg_sl)+
-                 '\n Force soleil/terre : \n' + str(Fg_st)) # échelle de distance, distance entre les astres, force gravitationnelle
-e_astres.grid(column=1,row=3)
+                 ' km \n Force G terre/lune : \n' + str(Fg_tl)+
+                 '\n Force G soleil/lune : \n' + str(Fg_sl)+
+                 '\n Force G soleil/terre : \n' + str(Fg_st)) # Label du bas qui affiche l'échelle de distance, distance entre les astres, forces gravitationnelles
+e_astres.grid(column=0,row=3)
 
-sep2 = Label(fen1,text='\n')
-sep2.grid(column=1,row=4)
+#sep2 = Label(fen1,text='\n')
+#sep2.grid(column=0,row=4)
 
 # Boutons lune
 def b_lune():
     can1.bind("<Button-1>", avance_lune)
     can1.grid()
-Button(fen1,text='Lune',command=b_lune,width=3).grid(column=1,row=5)
+Button(fen1,text='Lune',command=b_lune,width=3).grid(column=0,row=5,pady=20)
 
-sep1 = Label(fen1,text='\n')
-sep1.grid(column=1,row=6)
+#sep1 = Label(fen1,text='\n')
+#sep1.grid(column=0,row=6,pady=10)
 
 # Bouton terre
 def b_terre():
     can1.bind("<Button-1>", avance_terre)
     can1.grid()
-Button(fen1,text='Terre',command=b_terre,width=3).grid(column=1,row=7)
+Button(fen1,text='Terre',command=b_terre,width=3).grid(column=0,row=6,pady=20)
 
-Button(fen1,text='Quitter',command=fen1.destroy).grid()
+Button(fen1,text='Quitter',command=fen1.destroy).grid(sticky=SW)
 
 # démarrage du réceptionnaire d'évènements (boucle principale) :
 fen1.mainloop()
