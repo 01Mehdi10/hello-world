@@ -35,8 +35,8 @@ def distance_terre_lune_soleil():
                  '\n Force G soleil/lune : \n' + str(Fg_sl)+'\n Force G soleil/terre : \n' + str(Fg_st)) # échelle de distance, distance entre les astres, force gravitationnelle
  else:
    D_tl = round(D_tl * ech, 2)
-   e_astres.config(text='Échelle de distance : \n' + '1 px = ' + str(round(ech, 2)) + ' km' + '\n Distance terre/lune : ' + str(D_tl) + ' km \n Force G terre/lune : \n' + str(Fg_tl)+
-                 '\n Force G soleil/lune : \n' + str(Fg_sl)+'\n Force G soleil/terre : \n' + str(Fg_st)) # échelle de distance, distance entre les astres, force gravitationnelle
+   e_astres.config(text='Échelle de distance : \n' + '1 px = ' + str(round(ech, 2)) + ' km' + '\n Distance terre/lune : ' + str(D_tl) + ' km \n Force G terre/lune : \n' + str(Fg_tl)+ ' N' +
+                 '\n Force G soleil/lune : \n' + str(Fg_sl)+' N'+'\n Force G soleil/terre : \n' + str(Fg_st)+ ' N') # échelle de distance, distance entre les astres, force gravitationnelle
     
 #------ Programme principal -------
 # les variables suivantes seront utilisées de manière globale :
@@ -92,9 +92,9 @@ oval1 = can1.create_oval(x1-30,y1-30,x1+30,y1+30,width=2,fill='yellow') # lune
 oval2 = can1.create_oval(x2-80,y2-80,x2+80,y2+80,width=2,fill='blue') #terre
 
 e_astres = Label(fen1,text='Échelle de distance : \n' + '1 px = ' + str(round(ech, 2)) + ' km' + '\n Distance terre/lune : ' + str(D_tl) +
-                 ' km \n Force G terre/lune : \n' + str(Fg_tl)+
-                 '\n Force G soleil/lune : \n' + str(Fg_sl)+
-                 '\n Force G soleil/terre : \n' + str(Fg_st)) # Label du bas qui affiche l'échelle de distance, distance entre les astres, forces gravitationnelles
+                 ' km \n Force G terre/lune : \n' + str(Fg_tl)+ ' N' +
+                 '\n Force G soleil/lune : \n' + str(Fg_sl)+ ' N' +
+                 '\n Force G soleil/terre : \n' + str(Fg_st) + ' N')  # Label du bas qui affiche l'échelle de distance, distance entre les astres, forces gravitationnelles
 e_astres.grid(column=0,row=3)
 
 #sep2 = Label(fen1,text='\n')
