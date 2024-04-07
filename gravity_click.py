@@ -31,8 +31,8 @@ def distance_terre_lune_soleil():
  Fg_st = round(Fg_st,2) # force gravitationnelle soleil/terre
 
  if D_tl < (80/4 + 30/4):  # Si les astres se chevauchent
-   e_astres.config(text='Échelle de distance : \n' + '1 px = ' + str(round(ech, 2)) + ' km' + '\n Distance terre/lune : 0 km \n Force G terre/lune : \n' + str(Fg_tl)+
-                 '\n Force G soleil/lune : \n' + str(Fg_sl)+'\n Force G soleil/terre : \n' + str(Fg_st)) # échelle de distance, distance entre les astres, force gravitationnelle
+   e_astres.config(text='Échelle de distance : \n' + '1 px = ' + str(round(ech, 2)) + ' km' + '\n Distance terre/lune : 0 km \n Force G terre/lune : \n' + str(Fg_tl)+' N'+
+                 '\n Force G soleil/lune : \n' + str(Fg_sl)+' N'+'\n Force G soleil/terre : \n' + str(Fg_st)+' N') # échelle de distance, distance entre les astres, force gravitationnelle
  else:
    D_tl = round(D_tl * ech, 2)
    e_astres.config(text='Échelle de distance : \n' + '1 px = ' + str(round(ech, 2)) + ' km' + '\n Distance terre/lune : ' + str(D_tl) + ' km \n Force G terre/lune : \n' + str(Fg_tl)+ ' N' +
