@@ -85,19 +85,19 @@ frame.grid(column=0,row=2)
 def b_charge1():
     can1.bind("<Button-1>", avance_c1)
     can1.grid()
-Button(frame,text='Charge 1',command=b_charge1,width=5).grid(column=1,row=1,padx=5)
+Button(frame,text='Charge 1',command=b_charge1,width=5,bg='yellow').grid(column=1,row=1,padx=5)
 
 # Bouton charge2
 def b_charge2():
     can1.bind("<Button-1>", avance_c2)
     can1.grid()
-Button(frame,text='Charge 2',command=b_charge2,width=5).grid(column=2,row=1,padx=5)
+Button(frame,text='Charge 2',command=b_charge2,width=5,bg='blue',fg='white').grid(column=2,row=1,padx=5)
 
 # Bouton +
-Button(frame,text='+',command=change_signe_plus,width=2).grid(column=3,row=1,padx=5)
+Button(frame,text='+',command=change_signe_plus,width=2,bg='red',fg='white').grid(column=3,row=1,padx=5)
 
 # Bouton -
-Button(frame,text='-',command=change_signe_moins,width=2).grid(column=4,row=1,padx=5)
+Button(frame,text='-',command=change_signe_moins,width=2,bg='black',fg='white').grid(column=4,row=1,padx=5)
 
 # Bouton pour quitter l'application
 Button(fen1,text='Quitter',command=fen1.destroy).grid(sticky=SW)
