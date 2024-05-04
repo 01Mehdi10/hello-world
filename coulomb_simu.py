@@ -4,16 +4,16 @@ def avance_c1(event):
  global x1, y1
  x1, y1 = event.x, event.y
  can1.coords(oval1, x1-15,y1-15, x1+15,y1+15)
- distance_terre_lune_soleil()
+ distance_c1_c2()
  
 def avance_c2(event):
  global x2, y2
  x2, y2 = event.x, event.y
  can1.coords(oval2, x2-15,y2-15, x2+15,y2+15)
- distance_terre_lune_soleil()
+ distance_c1_c2()
  
  
-def distance_terre_lune_soleil():
+def distance_c1_c2():
  global ech
  D_c1_c2 = round(((x2 - x1) ** 2 + (y2 - y1) ** 2) ** 0.5,2) # distance charge1 -> charge2
  
