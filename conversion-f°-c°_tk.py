@@ -39,7 +39,7 @@ fahr.bind("<Return>", f_c)
 fahr.grid(column=2,row=2,pady=5)
 
 # Aide
-help = Label(fenetre,text='Entre un nombre dans\n un des champs de\n saisie puis valide par la\n touche entrée.')
-help.grid(column=2,row=3)
+help = Label(fenetre,text='Entre un nombre dans un des champs de\n saisie puis valide par la touche entrée.')
+help.grid(column=1,row=3,columnspan=2)
 
 fenetre.mainloop()
