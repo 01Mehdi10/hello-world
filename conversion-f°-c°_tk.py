@@ -6,12 +6,31 @@ from math import *
 # fonction convertion°
 def c_f(event):
     
+    # Bloquer l'utilisation des touches alphabétiques et autres caractères
+    try:
+        float(celc.get())
+    except:
+        if celc.get() == '-':
+            t = True
+        else:
+            t = False
+            celc.delete(0,'end')
+            
+    try:
+        float(fahr.get())
+    except:
+        if fahr.get() == '-':
+            t = True
+        else:
+            t = False
+            fahr.delete(0,'end') 
+            
     # convertion C° à F°
     if fenetre.focus_get() == celc:
         fahr.delete(0,'end')
         if celc.index('end') != 0 and celc.get() != '-':
             fahr.insert(0,str(round(float(celc.get()) * 1.8 + 32,2)))
-
+      
     # convertion F° à C°
     if fenetre.focus_get() == fahr:
         celc.delete(0,'end')
