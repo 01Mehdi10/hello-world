@@ -14,7 +14,7 @@ def c_f(event):
             t = True
         else:
             t = False
-            celc.delete(0,'end')
+            celc.delete(len(celc.get())-1,'end')
             
     try:
         float(fahr.get())
@@ -23,7 +23,7 @@ def c_f(event):
             t = True
         else:
             t = False
-            fahr.delete(0,'end') 
+            fahr.delete(len(fahr.get())-1,'end') 
             
     # convertion C° à F°
     if fenetre.focus_get() == celc:
