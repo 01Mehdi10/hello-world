@@ -5,20 +5,33 @@
 
 from tkinter import *
 
+# Marche
+def marche(event=None):
+    global en_marche, x
+    en_marche = True
+    avance_rond()
+
+# Arrêt
+def arret(event=None):
+    global en_marche
+    en_marche = False
+
 # Partie calcules
-x = 5
 def avance_rond():
-    global x1, y1, x
-    if x1 == 20:
-        x = 5
-    if x1 == 385:
-        x = - 5
-    x1, y1 = x1+x,100
-    can.coords(rond,x1-15,y1-15,x1+15,y1+15)
+    global x1, y1, x, en_marche
+    if en_marche:
+        if x1 == 20:
+            x = 5
+        if x1 == 385:
+            x = - 5
+        x1, y1 = x1+x,100
+        can.coords(rond,x1-15,y1-15,x1+15,y1+15)
+        can.after(50,avance_rond)
         
 # partie principales
 ##############
 x1, y1 = 20, 100
+x = 5 # variable pour changer le sens de déplacement de la balle
 
 fen = Tk() # widget principal
 fen.title('Balade balle')
@@ -33,7 +46,17 @@ can.grid(column=1,row=1)
 rond = can.create_oval(x1-15,y1-15,x1+15,y1+15,width=2,fill='red')
 
 # Bouton pour déplacer le rond
-bouton = Button(fen,text='>',command=avance_rond,width=5,bg='white').grid(column=1,row=2,pady=10)
+bouton = Button(fen,text='>',command=arret,width=5,bg='white')
+bouton.grid(column=1,row=2,pady=10)
+
+# Bouton pressé
+bouton.bind('<ButtonPress>', marche)
+
+# Bouton relaché
+bouton.bind('<ButtonRelease>', arret)
+
+# Variable de controle de fonctionnement
+en_marche = False
 
 # Bouton pour quitter l'application
 Button(fen,text='Quitter',command=fen.destroy,bg='white').grid(sticky=SW)
