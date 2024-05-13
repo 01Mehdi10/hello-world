@@ -6,14 +6,14 @@
 from tkinter import *
 import math
 
-# Marche
+###### MARCHE ######
 def sens_h(event=None):
-    marche("horizon")
+    marche("horizon") # appel choix déplacement horizontal
 
 def sens_c(event=None):
-    marche("circus")
+    marche("circus") # appel choix déplacement circulaire
     
-def marche(sens):
+def marche(sens): # choix entre déplacement horizontal est circulaire
     global en_marche,sens_h
     en_marche = True
     if sens == "horizon":
@@ -21,24 +21,28 @@ def marche(sens):
     if sens == "circus":
         avance_rond_circulaire()
 
-# Arrêt
+###### ARRÊT ######
 def arret(event=None):
     global en_marche
     en_marche = False
 
-# déplacement horizontal de bord à bord du canevas
+### déplacement horizontal de bord à bord du canevas. (subordonnée à la fonction en_marche) ###
 def avance_rond_droit():
-    global x1, y1, x, en_marche
+    global x1, y1, x, en_marche, new
     if en_marche:
-        if x1 == 20:
-            x = 5
-        if x1 == 385:
-            x = - 5
+        if x1 == 16:
+            x = 1
+        if x1 == 386:
+            x = - 1
         x1, y1 = x1+x, y1
         can.coords(rond,x1-15,y1-15,x1+15,y1+15)
+        
+        ### déssine une trainnée derrière le rond
+        trai = can.create_oval(x1-10,y1-10,x1+10,y1+10,width=2,fill='red',outline='red')
+        
         can.after(10,avance_rond_droit)
         
-# déplacement circulaire
+### déplacement circulaire (subordonnée à la fonction en_marche) ###
 def avance_rond_circulaire():
     global angle, rond, can
     if en_marche:
@@ -57,7 +61,10 @@ def avance_rond_circulaire():
         
 # partie principales
 ##############
-x1, y1 = 20, 200
+x1, y1 = 16, 200 # coordonnées initiales du rond
+
+new = 1 # initialisation d'un nouveau rond pour dessiner la trainnée
+
 x = 5 # variable pour changer le sens de déplacement de la balle
 
 # Initialisation de l'angle et de la vitesse de déplacement
